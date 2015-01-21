@@ -17,6 +17,45 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pacman.png" translatesAutoresizingMaskIntoConstraints="NO" id="tPw-Uc-UQj">
                     <rect key="frame" x="8" y="172" width="32" height="32"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Tm-Qc-ZlG">
+                    <rect key="frame" x="146" y="73" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cir-aI-csi">
+                    <rect key="frame" x="85" y="8" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="jRD-VF-ZQw">
+                    <rect key="frame" x="260" y="278" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="wnE-iU-9rs">
+                    <rect key="frame" x="204" y="143" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xrg-sn-hqP">
+                    <rect key="frame" x="50" y="312" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="XGJ-yT-qPI">
+                    <rect key="frame" x="541" y="318" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="twO-th-mV7">
+                    <rect key="frame" x="477" y="249" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="s7l-Nt-tNI">
+                    <rect key="frame" x="449" y="162" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareWall.png" translatesAutoresizingMaskIntoConstraints="NO" id="4XH-7N-edz">
+                    <rect key="frame" x="541" y="8" width="64" height="64"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ghost.png" translatesAutoresizingMaskIntoConstraints="NO" id="62c-P0-7Af">
+                    <rect key="frame" x="341" y="89" width="32" height="32"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ghost.png" translatesAutoresizingMaskIntoConstraints="NO" id="1u0-YG-QsK">
+                    <rect key="frame" x="400" y="265" width="32" height="32"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exit.png" translatesAutoresizingMaskIntoConstraints="NO" id="aYB-uK-zWe">
+                    <rect key="frame" x="663" y="177" width="33" height="33"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ghost.png" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-Ge-wIQ">
+                    <rect key="frame" x="167" y="312" width="32" height="32"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -25,6 +64,9 @@
         </view>
     </objects>
     <resources>
+        <image name="exit.png" width="33" height="33"/>
+        <image name="ghost.png" width="32" height="32"/>
         <image name="pacman.png" width="32" height="32"/>
+        <image name="squareWall.png" width="64" height="64"/>
     </resources>
 </document>
