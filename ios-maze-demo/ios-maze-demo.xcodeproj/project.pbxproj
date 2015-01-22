@@ -11,12 +11,12 @@
 		7A0D28281A6E720100689FDD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D28271A6E720100689FDD /* AppDelegate.m */; };
 		7A0D28301A6E720100689FDD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D282F1A6E720100689FDD /* Images.xcassets */; };
 		7A0D283F1A6E720100689FDD /* ios_maze_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D283E1A6E720100689FDD /* ios_maze_demoTests.m */; };
-		7A0D284B1A6E769A00689FDD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D28491A6E769A00689FDD /* ViewController.m */; };
-		7A0D284C1A6E769A00689FDD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D284A1A6E769A00689FDD /* ViewController.xib */; };
 		7A0D28511A6E7A7700689FDD /* squareWall.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D284D1A6E7A7700689FDD /* squareWall.png */; };
 		7A0D28521A6E7A7700689FDD /* ghost.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D284E1A6E7A7700689FDD /* ghost.png */; };
 		7A0D28531A6E7A7700689FDD /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D284F1A6E7A7700689FDD /* exit.png */; };
 		7A0D28541A6E7A7700689FDD /* pacman.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0D28501A6E7A7700689FDD /* pacman.png */; };
+		7A8CE2351A70CA4700ADD375 /* AppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8CE2331A70CA4700ADD375 /* AppViewController.m */; };
+		7A8CE2361A70CA4700ADD375 /* AppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CE2341A70CA4700ADD375 /* AppViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,13 +39,13 @@
 		7A0D28381A6E720100689FDD /* ios-maze-demoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios-maze-demoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0D283D1A6E720100689FDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A0D283E1A6E720100689FDD /* ios_maze_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_maze_demoTests.m; sourceTree = "<group>"; };
-		7A0D28481A6E769A00689FDD /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7A0D28491A6E769A00689FDD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		7A0D284A1A6E769A00689FDD /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		7A0D284D1A6E7A7700689FDD /* squareWall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = squareWall.png; path = "../../../../../../../Downloads/maze-game-images/squareWall.png"; sourceTree = "<group>"; };
 		7A0D284E1A6E7A7700689FDD /* ghost.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ghost.png; path = "../../../../../../../Downloads/maze-game-images/ghost.png"; sourceTree = "<group>"; };
 		7A0D284F1A6E7A7700689FDD /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exit.png; path = "../../../../../../../Downloads/maze-game-images/exit.png"; sourceTree = "<group>"; };
 		7A0D28501A6E7A7700689FDD /* pacman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pacman.png; path = "../../../../../../../Downloads/maze-game-images/pacman.png"; sourceTree = "<group>"; };
+		7A8CE2321A70CA4700ADD375 /* AppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
+		7A8CE2331A70CA4700ADD375 /* AppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppViewController.m; sourceTree = "<group>"; };
+		7A8CE2341A70CA4700ADD375 /* AppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,11 +89,11 @@
 			children = (
 				7A0D28261A6E720100689FDD /* AppDelegate.h */,
 				7A0D28271A6E720100689FDD /* AppDelegate.m */,
-				7A0D28481A6E769A00689FDD /* ViewController.h */,
-				7A0D28491A6E769A00689FDD /* ViewController.m */,
-				7A0D284A1A6E769A00689FDD /* ViewController.xib */,
 				7A0D282F1A6E720100689FDD /* Images.xcassets */,
 				7A0D28221A6E720100689FDD /* Supporting Files */,
+				7A8CE2321A70CA4700ADD375 /* AppViewController.h */,
+				7A8CE2331A70CA4700ADD375 /* AppViewController.m */,
+				7A8CE2341A70CA4700ADD375 /* AppViewController.xib */,
 			);
 			path = "ios-maze-demo";
 			sourceTree = "<group>";
@@ -210,8 +210,8 @@
 			files = (
 				7A0D28511A6E7A7700689FDD /* squareWall.png in Resources */,
 				7A0D28531A6E7A7700689FDD /* exit.png in Resources */,
+				7A8CE2361A70CA4700ADD375 /* AppViewController.xib in Resources */,
 				7A0D28521A6E7A7700689FDD /* ghost.png in Resources */,
-				7A0D284C1A6E769A00689FDD /* ViewController.xib in Resources */,
 				7A0D28301A6E720100689FDD /* Images.xcassets in Resources */,
 				7A0D28541A6E7A7700689FDD /* pacman.png in Resources */,
 			);
@@ -231,8 +231,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0D284B1A6E769A00689FDD /* ViewController.m in Sources */,
 				7A0D28281A6E720100689FDD /* AppDelegate.m in Sources */,
+				7A8CE2351A70CA4700ADD375 /* AppViewController.m in Sources */,
 				7A0D28251A6E720100689FDD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +339,7 @@
 				INFOPLIST_FILE = "ios-maze-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -349,6 +350,7 @@
 				INFOPLIST_FILE = "ios-maze-demo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

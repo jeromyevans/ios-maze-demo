@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  AppViewController.m
 //  ios-maze-demo
 //
-//  Created by Jeromy Evans (personal) on 20/01/2015.
+//  Created by Jeromy Evans (personal) on 22/01/2015.
 //  Copyright (c) 2015 Appcoda. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AppViewController.h"
 
-@interface ViewController ()
+@interface AppViewController ()
 
 @end
 
-@implementation ViewController
+@implementation AppViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
