@@ -52,7 +52,8 @@
     self.motionManager.accelerometerUpdateInterval = kUpdateInterval;
 
     [self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:
-//      this block sets the pacman's acceleration value and invokes update() on the main thread
+// this block sets the pacman's acceleration value and invokes updatePacmanPosition() on the main
+// thread. We don't want to render within the callback block invoked by the motionManager
      ^(CMAccelerometerData *accelerometerData, NSError *error) {
          [(id) self setAcceleration:accelerometerData.acceleration];
          [self performSelectorOnMainThread:@selector(updatePacmanPosition) withObject:nil waitUntilDone:NO];
@@ -76,6 +77,11 @@
     self.currentPoint = CGPointMake(self.currentPoint.x + xDelta,
                                     self.currentPoint.y + yDelta);
     
+    // extra angle in degrees
+    CGFloat newAngle = (self.pacmanXVelocity + self.pacmanYVelocity) * M_PI * 4;
+    
+    self.angle += newAngle * kUpdateInterval;  //
+    
     [self repaintPacman];
 
     self.lastUpdateTime = [NSDate date];
@@ -89,7 +95,18 @@
     frame.origin.x = self.currentPoint.x;
     frame.origin.y = self.currentPoint.y;
     
-    self.pacman.frame = frame;
+    self.pacman.frame = frame;  // todo: seems unnecessary. is frame a new instance? maybe yeah.
+    
+    CABasicAnimation *rotationAnimation;
+    rotationAnimation                     = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+    rotationAnimation.fromValue           = [NSNumber numberWithFloat:0];
+    rotationAnimation.toValue             = [NSNumber numberWithFloat:self.angle];
+    rotationAnimation.duration            = kUpdateInterval;
+    rotationAnimation.repeatCount         = 1;
+    rotationAnimation.removedOnCompletion = NO;
+    rotationAnimation.fillMode            = kCAFillModeForwards;
+    
+    [self.pacman.layer addAnimation:rotationAnimation forKey:@"10"];
 }
 
 /**
