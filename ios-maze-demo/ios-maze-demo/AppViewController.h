@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/CAAnimation.h>
 #import <CoreMotion/CoreMotion.h>
+#import "./pacman.h"
 
 @interface AppViewController : UIViewController
 
@@ -23,16 +24,6 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *walls;
 
-@property (assign, nonatomic) CGPoint currentPoint;
-@property (assign, nonatomic) CGPoint previousPoint;
-@property (assign, nonatomic) CGFloat pacmanXVelocity;
-@property (assign, nonatomic) CGFloat pacmanYVelocity;
-@property (assign, nonatomic) CGFloat angle;
-
-@property (assign, nonatomic) CMAcceleration acceleration;
-@property (strong, nonatomic) CMMotionManager  *motionManager;
-@property (strong, nonatomic) NSOperationQueue *queue;
-@property (strong, nonatomic) NSDate *lastUpdateTime;
-
+@property (strong, nonatomic) PacmanModel *packmanModel;
 
 @end

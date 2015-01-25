@@ -19,6 +19,7 @@
 		7A8CE2361A70CA4700ADD375 /* AppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A8CE2341A70CA4700ADD375 /* AppViewController.xib */; };
 		7A8CE2381A70CF3900ADD375 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CE2371A70CF3900ADD375 /* CoreMotion.framework */; };
 		7A8CE23A1A70CF4C00ADD375 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A8CE2391A70CF4C00ADD375 /* QuartzCore.framework */; };
+		7AF6A4BF1A74B112003C56A6 /* pacman.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AF6A4BE1A74B112003C56A6 /* pacman.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		7A8CE2341A70CA4700ADD375 /* AppViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppViewController.xib; sourceTree = "<group>"; };
 		7A8CE2371A70CF3900ADD375 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		7A8CE2391A70CF4C00ADD375 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		7AF6A4BD1A74B0BE003C56A6 /* pacman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pacman.h; sourceTree = "<group>"; };
+		7AF6A4BE1A74B112003C56A6 /* pacman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pacman.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 				7A8CE2321A70CA4700ADD375 /* AppViewController.h */,
 				7A8CE2331A70CA4700ADD375 /* AppViewController.m */,
 				7A8CE2341A70CA4700ADD375 /* AppViewController.xib */,
+				7AF6A4BD1A74B0BE003C56A6 /* pacman.h */,
+				7AF6A4BE1A74B112003C56A6 /* pacman.m */,
 			);
 			path = "ios-maze-demo";
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				7A0D28281A6E720100689FDD /* AppDelegate.m in Sources */,
 				7A8CE2351A70CA4700ADD375 /* AppViewController.m in Sources */,
 				7A0D28251A6E720100689FDD /* main.m in Sources */,
+				7AF6A4BF1A74B112003C56A6 /* pacman.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

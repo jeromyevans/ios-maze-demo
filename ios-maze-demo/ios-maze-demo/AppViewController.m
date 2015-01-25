@@ -10,9 +10,11 @@
 
 @interface AppViewController ()
 
+@property (strong, nonatomic) CMMotionManager  *motionManager;
+@property (strong, nonatomic) NSOperationQueue *queue;
+
 - (void)animateGhost:(UIImageView*)ghost withYOffset:(int)yOffset;
 
-#define SCALE 500
 
 @end
 
@@ -43,69 +45,45 @@
  are added to the queue
  */
 - (void)setupPacmanMotion {
-    self.lastUpdateTime = [[NSDate alloc] init];
     
-    self.currentPoint = CGPointMake(0, 144);
+    self.packmanModel = [[PacmanModel alloc] init];
+            
     self.motionManager = [[CMMotionManager alloc]  init];
     self.queue         = [[NSOperationQueue alloc] init];
     
     self.motionManager.accelerometerUpdateInterval = kUpdateInterval;
 
     [self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:
-// this block sets the pacman's acceleration value and invokes updatePacmanPosition() on the main
-// thread. We don't want to render within the callback block invoked by the motionManager
+     // invoke calculatePosition() with latest acceleration to recalculate position
+     // invoke render on the main thread as we don't want to render within the callback block invoked by the motionManager
      ^(CMAccelerometerData *accelerometerData, NSError *error) {
-         [(id) self setAcceleration:accelerometerData.acceleration];
-         [self performSelectorOnMainThread:@selector(updatePacmanPosition) withObject:nil waitUntilDone:NO];
+         
+         [self.packmanModel calculatePosition:accelerometerData.acceleration ];
+         
+         [self performSelectorOnMainThread:@selector(repaintPacman) withObject:nil waitUntilDone:NO];
      }];
 }
 
 /**
- Use current position and vector, new acceleration and time to calculate a new position 
- for the pacman. Then render in new position
+ Repaint the pacman using its current model
  */
-- (void) updatePacmanPosition {
- 
-    NSTimeInterval secondsSinceLastDraw = -([self.lastUpdateTime timeIntervalSinceNow]);
-    
-    self.pacmanYVelocity = self.pacmanYVelocity - (self.acceleration.y * secondsSinceLastDraw);
-    self.pacmanXVelocity = self.pacmanXVelocity - (self.acceleration.x * secondsSinceLastDraw);
-
-    CGFloat xDelta = secondsSinceLastDraw * self.pacmanXVelocity * SCALE;
-    CGFloat yDelta = secondsSinceLastDraw * self.pacmanYVelocity * SCALE;
-
-    self.currentPoint = CGPointMake(self.currentPoint.x + xDelta,
-                                    self.currentPoint.y + yDelta);
-    
-    // extra angle in degrees
-    CGFloat newAngle = (self.pacmanXVelocity + self.pacmanYVelocity) * M_PI * 4;
-    
-    self.angle += newAngle * kUpdateInterval;  //
-    
-    [self repaintPacman];
-
-    self.lastUpdateTime = [NSDate date];
-}
-
 - (void) repaintPacman {
 
-    self.previousPoint = self.currentPoint;
-
     CGRect frame = self.pacman.frame;
-    frame.origin.x = self.currentPoint.x;
-    frame.origin.y = self.currentPoint.y;
-    
-    self.pacman.frame = frame;  // todo: seems unnecessary. is frame a new instance? maybe yeah.
+    frame.origin.x = self.packmanModel.currentPoint.x;
+    frame.origin.y = self.packmanModel.currentPoint.y;
     
     CABasicAnimation *rotationAnimation;
     rotationAnimation                     = [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
     rotationAnimation.fromValue           = [NSNumber numberWithFloat:0];
-    rotationAnimation.toValue             = [NSNumber numberWithFloat:self.angle];
+    rotationAnimation.toValue             = [NSNumber numberWithFloat:self.packmanModel.angle];
     rotationAnimation.duration            = kUpdateInterval;
     rotationAnimation.repeatCount         = 1;
     rotationAnimation.removedOnCompletion = NO;
     rotationAnimation.fillMode            = kCAFillModeForwards;
     
+    self.pacman.frame = frame;  // todo: seems unnecessary. is frame a new instance? maybe yeah.
+
     [self.pacman.layer addAnimation:rotationAnimation forKey:@"10"];
 }
 
