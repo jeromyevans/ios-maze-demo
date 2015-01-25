@@ -12,11 +12,17 @@
 
 - (void)animateGhost:(UIImageView*)ghost withYOffset:(int)yOffset;
 
+#define SCALE 500
+
 @end
 
 @implementation AppViewController
 
 
+/*
+ Set up a CABasicAnimation fo rthe specificed ghost. It will set up a 
+ simple repeating translation from the origin to the offset 
+ */
 - (void)animateGhost:(UIImageView*)ghost withYOffset:(int)yOffset {
  
     CGPoint origin = ghost.center;
@@ -32,6 +38,63 @@
     [ghost.layer addAnimation:bounceAnim forKey:@"position"];
 }
 
+/**
+ Set up the motion manager to read accelerometer inputs every kUpdateInterval. Values
+ are added to the queue
+ */
+- (void)setupPacmanMotion {
+    self.lastUpdateTime = [[NSDate alloc] init];
+    
+    self.currentPoint = CGPointMake(0, 144);
+    self.motionManager = [[CMMotionManager alloc]  init];
+    self.queue         = [[NSOperationQueue alloc] init];
+    
+    self.motionManager.accelerometerUpdateInterval = kUpdateInterval;
+
+    [self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:
+//      this block sets the pacman's acceleration value and invokes update() on the main thread
+     ^(CMAccelerometerData *accelerometerData, NSError *error) {
+         [(id) self setAcceleration:accelerometerData.acceleration];
+         [self performSelectorOnMainThread:@selector(updatePacmanPosition) withObject:nil waitUntilDone:NO];
+     }];
+}
+
+/**
+ Use current position and vector, new acceleration and time to calculate a new position 
+ for the pacman. Then render in new position
+ */
+- (void) updatePacmanPosition {
+ 
+    NSTimeInterval secondsSinceLastDraw = -([self.lastUpdateTime timeIntervalSinceNow]);
+    
+    self.pacmanYVelocity = self.pacmanYVelocity - (self.acceleration.y * secondsSinceLastDraw);
+    self.pacmanXVelocity = self.pacmanXVelocity - (self.acceleration.x * secondsSinceLastDraw);
+
+    CGFloat xDelta = secondsSinceLastDraw * self.pacmanXVelocity * SCALE;
+    CGFloat yDelta = secondsSinceLastDraw * self.pacmanYVelocity * SCALE;
+
+    self.currentPoint = CGPointMake(self.currentPoint.x + xDelta,
+                                    self.currentPoint.y + yDelta);
+    
+    [self repaintPacman];
+
+    self.lastUpdateTime = [NSDate date];
+}
+
+- (void) repaintPacman {
+
+    self.previousPoint = self.currentPoint;
+
+    CGRect frame = self.pacman.frame;
+    frame.origin.x = self.currentPoint.x;
+    frame.origin.y = self.currentPoint.y;
+    
+    self.pacman.frame = frame;
+}
+
+/**
+ After the view is loaded from the nib, start the ghost animations
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -39,6 +102,8 @@
     [self animateGhost:self.ghost1 withYOffset:-124];
     [self animateGhost:self.ghost2 withYOffset:+284];
     [self animateGhost:self.ghost3 withYOffset:-284];
+    
+    [self setupPacmanMotion];
 }
 
 - (void)didReceiveMemoryWarning {
